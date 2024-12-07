@@ -1,0 +1,30 @@
+
+
+        var Bars = Sistem.GrafikVerileri;
+
+
+        var Liste = new List<string>();
+
+        for (var i = 0; i < Bars.Count; i++)
+
+        {
+
+            Liste.Add(Bars[i].Date.ToString("dd.MM.yyyy")
+
+            + ";" + Bars[i].Date.ToString("HH:mm")
+
+            + ";" + Bars[i].Open.ToString()
+
+            + ";" + Bars[i].High.ToString()
+
+            + ";" + Bars[i].Low.ToString()
+
+            + ";" + Bars[i].Close.ToString()
+
+            + ";" + Bars[i].Vol.ToString("0"));
+
+        }
+        var hisse = Sistem.Sembol;
+        var periyot=Sistem.Periyot;
+        var DosyaAdi = string.Format("\\ideal\\data\\{0}_{1}.txt", hisse,periyot);
+        File.WriteAllLines(DosyaAdi, Liste);
